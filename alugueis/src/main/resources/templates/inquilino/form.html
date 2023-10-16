@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>RentHub</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">RentHub</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="/aluguel">Aluguéis</a></li>
+                <li><a href="/propriedade">Propriedades</a></li>
+                <li><a href="/inquilino">Inquilinos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h3>Cadastrar Inquilino</h3>
+
+        <div class="row">
+            <form action="/inquilino" method="post" class="col s12" th:object="${aluguel}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{nome}" 
+                            type="nome"
+                            th:classappend="${#fields.hasErrors('nome')} ? invalid"
+                        >
+                        <label for="nome">Nome</label>
+                        <span class="helper-text red-text" th:errors="*{nome}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{sobrenome}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('sobrenome')} ? invalid"
+                        ></textarea>
+                        <label for="sobrenome">Sobrenome</label>
+                        <span class="helper-text red-text" th:errors="*{sobrenome}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{cpf}" 
+                            type="cpf"
+                            th:classappend="${#fields.hasErrors('cpf')} ? invalid"
+                        >
+                        <label for="cpf">CPF</label>
+                        <span class="helper-text red-text" th:errors="*{cpf}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{email}" 
+                            type="email"
+                            th:classappend="${#fields.hasErrors('email')} ? invalid"
+                        >
+                        <label for="email">E-mail</label>
+                        <span class="helper-text red-text" th:errors="*{email}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{telefone}" 
+                            type="telefone"
+                            th:classappend="${#fields.hasErrors('telefone')} ? invalid"
+                        >
+                        <label for="telefone">Telefone</label>
+                        <span class="helper-text red-text" th:errors="*{telefone}"></span>
+                    </div>
+                </div>
+                <div>
+                    <a href="/inquilino" class="btn grey">cancelar</a>
+                    <button class="btn">salvar</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

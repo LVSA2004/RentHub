@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>RentHub</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">RentHub</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="/aluguel">Aluguéis</a></li>
+                <li><a href="/inquilino">Inquilinos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h3>Cadastrar Propriedade</h3>
+
+        <div class="row">
+            <form action="/propriedade" method="post" class="col s12" th:object="${propriedade}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{titulo}" 
+                            type="text"
+                            th:classappend="${#fields.hasErrors('titulo')} ? invalid"
+                        >
+                        <label for="titulo">Titulo</label>
+                        <span class="helper-text red-text" th:errors="*{titulo}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{tipo}" 
+                            type="text"
+                            th:classappend="${#fields.hasErrors('tipo')} ? invalid"
+                        >
+                        <label for="tipo">Tipo</label>
+                        <span class="helper-text red-text" th:errors="*{tipo}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{description}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('description')} ? invalid"
+                        ></textarea>
+                        <label for="description">Descrição</label>
+                        <span class="helper-text red-text" th:errors="*{description}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{cep}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('cep')} ? invalid"
+                        ></textarea>
+                        <label for="cep">CEP</label>
+                        <span class="helper-text red-text" th:errors="*{cep}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{endereco}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('endereco')} ? invalid"
+                        ></textarea>
+                        <label for="endereco">Endereço 1</label>
+                        <span class="helper-text red-text" th:errors="*{endereco}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{endereco2}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('endereco2')} ? invalid"
+                        ></textarea>
+                        <label for="endereco2">Endereço 2</label>
+                        <span class="helper-text red-text" th:errors="*{endereco2}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{cidade}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('cidade')} ? invalid"
+                        ></textarea>
+                        <label for="cidade">Cidade</label>
+                        <span class="helper-text red-text" th:errors="*{cidade}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{estado}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('estado')} ? invalid"
+                        ></textarea>
+                        <label for="estado">Estado</label>
+                        <span class="helper-text red-text" th:errors="*{estado}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{pais}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('pais')} ? invalid"
+                        ></textarea>
+                        <label for="pais">País</label>
+                        <span class="helper-text red-text" th:errors="*{pais}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{metragem}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('metragem')} ? invalid"
+                        ></textarea>
+                        <label for="metragem">Metragem</label>
+                        <span class="helper-text red-text" th:errors="*{metragem}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{comodos}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('comodos')} ? invalid"
+                        ></textarea>
+                        <label for="comodos">Número de Comodos</label>
+                        <span class="helper-text red-text" th:errors="*{comodos}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{quartos}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('quartos')} ? invalid"
+                        ></textarea>
+                        <label for="quartos">Número de Quartos</label>
+                        <span class="helper-text red-text" th:errors="*{quartos}"></span>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea 
+                            th:field="*{banheiros}" 
+                            class="materialize-textarea"
+                            th:classappend="${#fields.hasErrors('banheiros')} ? invalid"
+                        ></textarea>
+                        <label for="banheiros">Número de Banheiros</label>
+                        <span class="helper-text red-text" th:errors="*{banheiros}"></span>
+                    </div>  
+                </div>
+                <div>
+                    <a href="/propriedade" class="btn grey">cancelar</a>
+                    <button class="btn">salvar</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
