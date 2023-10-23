@@ -20,7 +20,7 @@ public class Inquilino {
     private String sobrenome;
 
     @NotBlank(message = "O Campo CPF é obrigatório")
-    private int cpf;
+    private Integer cpf;
 
     @NotBlank(message = "O Campo E-mail é obrigatório")
     private String email;

@@ -27,7 +27,7 @@
         <h3>Cadastrar Propriedade</h3>
 
         <div class="row">
-            <form action="/propriedade" method="post" class="col s12" th:object="${propriedade}">
+            <form th:action="${'/propriedade'}" method="post" class="col s12" th:object="${propriedade}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input 

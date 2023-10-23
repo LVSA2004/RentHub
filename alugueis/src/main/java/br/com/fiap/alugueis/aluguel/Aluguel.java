@@ -2,10 +2,10 @@ package br.com.fiap.alugueis.aluguel;
 
 import br.com.fiap.alugueis.Inquilino.Inquilino;
 
+import lombok.Data;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
@@ -30,6 +30,5 @@ public class Aluguel {
     private String description;
 
     @Min(1000) @Max(5000)
-    private double valor;
-
+    private Integer score;
 }

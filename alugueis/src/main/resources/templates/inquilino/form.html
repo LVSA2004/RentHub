@@ -28,7 +28,7 @@
         <h3>Cadastrar Inquilino</h3>
 
         <div class="row">
-            <form action="/inquilino" method="post" class="col s12" th:object="${aluguel}">
+            <form th:action="${'/inquilino'}" method="post" class="col s12" th:object="${inquilino}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input 
@@ -55,7 +55,7 @@
                     <div class="input-field col s12">
                         <input 
                             th:field="*{cpf}" 
-                            type="cpf"
+                            type="integer"
                             th:classappend="${#fields.hasErrors('cpf')} ? invalid"
                         >
                         <label for="cpf">CPF</label>

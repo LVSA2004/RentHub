@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,6 +22,10 @@ public class PropriedadeController {
 
     @Autowired
     PropriedadeService service;
+
+    @Autowired
+    MessageSource message;
+    
     
     @GetMapping
     public String index(Model model, @AuthenticationPrincipal OAuth2User user){
@@ -32,9 +38,9 @@ public class PropriedadeController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect){
         if (service.delete(id)){
-            redirect.addFlashAttribute("success", "Propriedade deletado com sucesso");
+            redirect.addFlashAttribute("success",  message.getMessage("propriedade.delete.success", null, LocaleContextHolder.getLocale()));
         }else{
-            redirect.addFlashAttribute("error", "Propriedade não encontrado");
+            redirect.addFlashAttribute("error",  message.getMessage("propriedade.notfound", null, LocaleContextHolder.getLocale()));
         }
         return "redirect:/propriedade";
     }
@@ -49,7 +55,7 @@ public class PropriedadeController {
         if (binding.hasErrors()) return "/propriedade/form";
 
         service.save(propriedade);
-        redirect.addFlashAttribute("success", "Propriedade cadastrado com sucesso");
+        redirect.addFlashAttribute("success",  message.getMessage("propriedade.created.success", null, LocaleContextHolder.getLocale()));
         return "redirect:/propriedade";
     }
     

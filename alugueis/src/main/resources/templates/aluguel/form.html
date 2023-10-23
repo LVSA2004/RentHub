@@ -28,7 +28,7 @@
         <h3>Cadastrar Aluguel</h3>
 
         <div class="row">
-            <form action="/aluguel" method="post" class="col s12" th:object="${aluguel}">
+            <form th:action="${'/aluguel'}" method="post" class="col s12" th:object="${aluguel}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input 
@@ -54,9 +54,9 @@
                 <div class="row">
                     <div class="col s12">
                         <p class="range-field">
-                            <label for="valor">Valor do Aluguel</label>
-                            <input th:field="*{valor}" type="range" min="1000" max="5000" />
-                            <span class="helper-text red-text" th:errors="*{valor}"></span>
+                            <label for="score">Valor do Aluguel</label>
+                            <input th:field="*{score}" type="range" min="1000" max="5000" />
+                            <span class="helper-text red-text" th:errors="*{score}"></span>
                           </p>
                     </div>
                 </div>
