@@ -18,25 +18,25 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/aluguel">Aluguéis</a></li>
         <li><a href="/propriedade">Propriedades</a></li>
-        <li><a href="/contrato">Contratos</a></li>
-        <li>
-          <!-- Dropdown Trigger -->
-          <a class='dropdown-trigger' href='#' data-target='dropdown1'>
-              <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
-          </a>
+        <li><a href="/inquilino">Inquilinos</a></li>
+                <li>
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger' href='#' data-target='dropdown1'>
+                        <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
+                    </a>
 
-          <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
-              <li><span th:text="${username}"></span></li>
-              <li class="divider" tabindex="-1"></li>
-              <li>
-                  <a href="/logout">
-                      <i class="material-icons">logout</i>
-                      sair
-                  </a>
-              </li>
-          </ul>
-      </li>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><span th:text="${username}"></span></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li>
+                            <a href="/logout">
+                                <i class="material-icons">logout</i>
+                                sair
+                            </a>
+                        </li>
+                    </ul>
+                </li>
       </ul>
     </div>
   </nav>
@@ -46,22 +46,20 @@
     <div class="card-panel teal accent-3" th:if="${success}" th:text="${success}"></div>
     <div class="card-panel red accent-3 white-text" th:if="${error}" th:text="${error}"></div>
 
-    <h2>Lista de Inquilinos</h2>
+    <h2>Lista de Contratos</h2>
 
     <div class="row">
       <div class="col s4 m6">
-        <div th:each="inquilino : ${inquilinos}"class="card">
+        <div th:each="contrato : ${contratos}"class="card">
           <div class="card-image">
-            <img src="https://cdn.discordapp.com/attachments/653753326198063104/1163202787606265936/Redimensionada-2.png?ex=653eb803&is=652c4303&hm=2fecfb93f69218b568b83bc0da510b5060e37c3f8cea786064f945a5fd05bc99&">
-            <span th:text="${inquilino.nome}" class="card-title"></span>
+            <img src="https://cdn.discordapp.com/attachments/945808741385793596/1170471422330667110/f1289db8-10.png?ex=65592975&is=6546b475&hm=8f838e1516c38a51d94073861f900dfd5df4932c9164b1137e84df35ffb94012&">
+            <span th:text="${contrato.title}" class="card-title"></span>
             
           </div>
           <div class="card-action">
             <a class="waves-effect waves-light yellow accent-4 btn">Editar</a>
             <a class="waves-effect waves-light blue darken-1 btn">Detalhes</a>
-            <a th:href="${'/inquilino/delete/' + inquilino.id}" class="waves-effect waves-light  red btn">Deletar</a>
-          </div>
-          <div class="card-content">
+            <a th:href="${'/contrato/delete/' + contrato.id}" class="waves-effect waves-light  red btn">Deletar</a>
           </div>
         </div>
       </div>
@@ -70,13 +68,14 @@
     
   </div>
   <div class="fixed-action-btn">
-    <a href="/inquilino/new" class="btn-floating btn-large red">
+    <a href="/contrato/new" class="btn-floating btn-large red">
         <i class="large material-icons">add</i>
     </a>
   </div>
 
   
 </body>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.dropdown-trigger');

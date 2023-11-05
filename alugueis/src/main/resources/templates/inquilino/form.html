@@ -33,7 +33,7 @@
                     <div class="input-field col s12">
                         <input 
                             th:field="*{nome}" 
-                            type="nome"
+                            type="text"
                             th:classappend="${#fields.hasErrors('nome')} ? invalid"
                         >
                         <label for="nome">Nome</label>
@@ -42,11 +42,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea 
+                        <input 
                             th:field="*{sobrenome}" 
-                            class="materialize-textarea"
+                            type="text"
                             th:classappend="${#fields.hasErrors('sobrenome')} ? invalid"
-                        ></textarea>
+                        >
                         <label for="sobrenome">Sobrenome</label>
                         <span class="helper-text red-text" th:errors="*{sobrenome}"></span>
                     </div>  
@@ -55,7 +55,7 @@
                     <div class="input-field col s12">
                         <input 
                             th:field="*{cpf}" 
-                            type="integer"
+                            type="Integer"
                             th:classappend="${#fields.hasErrors('cpf')} ? invalid"
                         >
                         <label for="cpf">CPF</label>
@@ -66,7 +66,7 @@
                     <div class="input-field col s12">
                         <input 
                             th:field="*{email}" 
-                            type="email"
+                            type="text"
                             th:classappend="${#fields.hasErrors('email')} ? invalid"
                         >
                         <label for="email">E-mail</label>
@@ -77,7 +77,7 @@
                     <div class="input-field col s12">
                         <input 
                             th:field="*{telefone}" 
-                            type="telefone"
+                            type="text"
                             th:classappend="${#fields.hasErrors('telefone')} ? invalid"
                         >
                         <label for="telefone">Telefone</label>

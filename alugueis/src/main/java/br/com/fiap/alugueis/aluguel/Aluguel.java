@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Min;
 
 @Data
 @Entity
-@Table(name = "TB_JJ_ALUGUEIS")
+@Table(name = "TB_ALUGUEIS")
 public class Aluguel {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class Aluguel {
             foreignKey = @ForeignKey(name = "FK_INQUILINO_ALUGUEL", value = ConstraintMode.CONSTRAINT))
     private Inquilino Inquilino;
 
-    @NotBlank(message = "campo título é obrigatório")
+    @NotBlank(message = "O campo título é obrigatório")
     private String title;
 
-    @Size(min = 10, message = "descrição deve ter pelo menos 10 caracteres")
+    @Size(min = 10, message = "A descrição deve ter pelo menos 10 caracteres")
     private String description;
 
     @Min(1000) @Max(5000)

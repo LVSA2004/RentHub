@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>RentHub</title>
 </head>
 
@@ -14,29 +15,29 @@
     
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">RentHub</a>
+      <a href="http://localhost:8080/" class="brand-logo">RentHub</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/aluguel">Aluguéis</a></li>
         <li><a href="/propriedade">Propriedades</a></li>
-        <li><a href="/inquilinos">Inquilinos</a></li>
-                <li>
-                    <!-- Dropdown Trigger -->
-                    <a class='dropdown-trigger' href='#' data-target='dropdown1'>
-                        <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
-                    </a>
+        <li><a href="/inquilino">Inquilinos</a></li>
+        <li><a href="/contrato">Contratos</a></li>
+        <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger' href='#' data-target='dropdown1'>
+              <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
+            </a>
 
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><span th:text="${username}"></span></li>
-                        <li class="divider" tabindex="-1"></li>
-                        <li>
-                            <a href="/logout">
-                                <i class="material-icons">logout</i>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><span th:text="${username}"></span></li>
+                <li class="divider" tabindex="-1"></li>
+                <li>
+                    <a href="/logout">
+                    <i class="material-icons">logout</i>
                                 sair
-                            </a>
-                        </li>
-                    </ul>
+                    </a>
                 </li>
+            </ul>
+         </li>
       </ul>
     </div>
   </nav>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>RentHub</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">RentHub</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="/aluguel">Aluguéis</a></li>
+                <li><a href="/propriedade">Propriedades</a></li>
+                <li><a href="/inquilino">Inquilinos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h3>Cadastrar Contrato</h3>
+
+        <div class="row">
+            <form th:action="${'/contrato'}" method="post" class="col s12" th:object="${contrato}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input 
+                            th:field="*{title}" 
+                            type="text"
+                            th:classappend="${#fields.hasErrors('title')} ? invalid"
+                        >
+                        <label for="title">Título</label>
+                        <span class="helper-text red-text" th:errors="*{title}"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="inquilino">Selecione um inquilino:</label>
+                        <select id="inquilino" name="inquilino">
+                            <option value="">Selecione um inquilino</option>
+                            <option value="inquilino1">Inquilino 1</option>
+                            <option value="inquilino2">Inquilino 2</option>
+                            <option value="inquilino3">Inquilino 3</option>
+                            <!-- Adicione mais opções conforme necessário -->
+                        </select>
+                    </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col s12">
+                        <p class="range-field">
+                            <label for="score">Duração do Contrato</label>
+                            <input th:field="*{score}" type="range" min="1" max="10" />
+                            <span class="helper-text red-text" th:errors="*{score}"></span>
+                          </p>
+                    </div>
+                </div>
+                <div>
+                    <a href="/contrato" class="btn grey">cancelar</a>
+                    <button class="btn">salvar</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

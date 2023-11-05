@@ -16,18 +16,30 @@
 
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">RentHub</a>
+            <a href="http://localhost:8080/" class="brand-logo">RentHub</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li class="active"><a href="/aluguel">Aluguéis</a></li>
                 <li><a href="/propriedade">Propriedades</a></li>
                 <li><a href="/inquilino">Inquilinos</a></li>
+                <li><a href="/contrato">Contratos</a></li>
                 <li>
-                  <span th:text="${username}"></span>
-                  <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
-                  <a href="/logout" class="btn" title="sair">
-                      <i class="material-icons">logout</i>
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger' href='#' data-target='dropdown1'>
+                      <img th:src="${avatar_url}" class="avatar" alt="foto do usuário" />
                   </a>
-                </li>
+
+                  <!-- Dropdown Structure -->
+                  <ul id='dropdown1' class='dropdown-content'>
+                      <li><span th:text="${username}"></span></li>
+                      <li class="divider" tabindex="-1"></li>
+                      <li>
+                          <a href="/logout">
+                              <i class="material-icons">logout</i>
+                              sair
+                          </a>
+                      </li>
+                  </ul>
+              </li>
             </ul>
         </div>
     </nav>
@@ -35,7 +47,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col s12 m4 ">
+            <div class="col s12 m5">
               <div class="card">
                 <div class="card-image">
                   <img src="https://cdn.discordapp.com/attachments/653753326198063104/1162126261590687774/shutterstock_1716324079-1-1-1900x1069.png?ex=653acd6c&is=6528586c&hm=f6dee8a93de5b631563605a9dcad447874b5db875686a880770fa1018d2a3dcd&">
@@ -46,43 +58,58 @@
                 <div class="card-action">
                     <a  href="/aluguel" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
                 </div>
-              </div>
-            </div>
-            <div class="col s12 m4">
                 <div class="card">
                   <div class="card-image">
-                    <img  src="https://cdn.discordapp.com/attachments/653753326198063104/1163202677329637512/A-possibilidade-de-renuncia-a-propriedade-imobiliaria-1200x675.png?ex=653eb7e9&is=652c42e9&hm=8fced359506adfe5fa0fd4ac9b5c44d504de08a9579449c251ff5290b0cb3f29&">
-                  </div>
-                  <div class="card-content">
-                    <p>Gerenciamento de Propriedades</p>
-                  </div>
-                  <div class="card-action">
-                    <a  href="/propriedade" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
-                  </div>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="card">
-                  <div class="card-image">
-                    <img height="227px" src="https://cdn.discordapp.com/attachments/653753326198063104/1163202787606265936/Redimensionada-2.png?ex=653eb803&is=652c4303&hm=2fecfb93f69218b568b83bc0da510b5060e37c3f8cea786064f945a5fd05bc99&">
+                    <img src="https://cdn.discordapp.com/attachments/653753326198063104/1163202787606265936/Redimensionada-2.png?ex=653eb803&is=652c4303&hm=2fecfb93f69218b568b83bc0da510b5060e37c3f8cea786064f945a5fd05bc99&">
                   </div>
                   <div class="card-content">
                     <p>Gerenciamento de Inquilinos</p>
                   </div>
                   <div class="card-action">
-                    <a  href="/inquilino" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
+                      <a  href="/inquilino" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
                   </div>
                 </div>
               </div>
-
+            </div>
+            <div class="col s12 m5">
+              <div class="card">
+                <div class="card-image">
+                  <img src="https://cdn.discordapp.com/attachments/653753326198063104/1163202677329637512/A-possibilidade-de-renuncia-a-propriedade-imobiliaria-1200x675.png?ex=653eb7e9&is=652c42e9&hm=8fced359506adfe5fa0fd4ac9b5c44d504de08a9579449c251ff5290b0cb3f29&">
+                </div>
+                <div class="card-content">
+                  <p>Gerenciamento de Propriedades</p>
+                </div>
+                <div class="card-action">
+                    <a  href="/propriedade" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
+                </div>
+                <div class="card">
+                  <div class="card-image">
+                    <img  src="https://cdn.discordapp.com/attachments/945808741385793596/1170471422330667110/f1289db8-10.png?ex=65592975&is=6546b475&hm=8f838e1516c38a51d94073861f900dfd5df4932c9164b1137e84df35ffb94012&">
+                  </div>
+                  <div class="card-content">
+                    <p>Gerenciamento de Contratos</p>
+                  </div>
+                  <div class="card-action">
+                      <a  href="/contrato" class="waves-effect waves-light btn-large"><i class="material-icons right">send</i>Gerenciar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
         </div>
-
-
     </div>
-
-
-
-
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      const options = {
+          constrainWidth: false,
+          coverTrigger: false
+      }
+      var instances = M.Dropdown.init(elems, options);
+  });
+</script>
 
 </html>

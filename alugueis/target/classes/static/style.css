@@ -3,3 +3,13 @@
     width: 54px;
     border-radius: 50%;
 }
+
+.container{
+    padding-left: 230px;
+}
+
+.brand-logo{
+    display: flex;
+    margin-left: 20px;
+}
+

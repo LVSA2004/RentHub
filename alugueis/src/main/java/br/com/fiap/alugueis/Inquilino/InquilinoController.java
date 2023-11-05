@@ -30,7 +30,7 @@ public class InquilinoController {
     public String index(Model model, @AuthenticationPrincipal OAuth2User user){
         model.addAttribute("username", user.getAttribute("name"));
         model.addAttribute("avatar_url", user.getAttribute("avatar_url"));
-        model.addAttribute("inquilino", service.findAll());
+        model.addAttribute("inquilinos", service.findAll());
         return "inquilino/index";
     }
 
